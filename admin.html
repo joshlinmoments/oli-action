@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Oli-Action · 報名後台 Admin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317130C'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23E89E23' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Fredoka:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --orange:#E89E23;--ink:#17130C;--blue:#26449D;--paper:#FFFDF7;--cream:#FFF1D4;
+      --line:#e5ddcb;--muted:#8a7a5c;--ok:#166c40;--okbg:#d6f5e3;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:"Fredoka","Noto Sans TC",system-ui,sans-serif;background:#faf6ee;color:var(--ink);line-height:1.5}
+    h1,h2,h3,.display{font-family:"Baloo 2","Noto Sans TC",sans-serif}
+    a{color:var(--blue)}
+
+    /* top bar */
+    .topbar{background:var(--orange);border-bottom:3px solid var(--ink);position:sticky;top:0;z-index:20}
+    .topbar .in{max-width:1400px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{font-family:"Baloo 2";font-weight:800;font-size:20px}
+    .brand small{font-family:"Fredoka";font-weight:500;font-size:13px;opacity:.8}
+    .who{display:flex;align-items:center;gap:12px;font-size:13.5px}
+    .who img{width:30px;height:30px;border-radius:50%;border:2px solid var(--ink)}
+    .btn{font-family:"Baloo 2";font-weight:700;font-size:14px;padding:9px 16px;border:2.5px solid var(--ink);
+      border-radius:999px;background:var(--paper);cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:.1s}
+    .btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+    .btn.blue{background:var(--blue);color:#fff}
+    .btn.sm{font-size:13px;padding:7px 14px;box-shadow:2px 2px 0 var(--ink)}
+
+    .wrap{max-width:1400px;margin:0 auto;padding:22px 20px 60px}
+
+    /* login card */
+    .center{min-height:calc(100vh - 60px);display:flex;align-items:center;justify-content:center;padding:20px}
+    .card{background:var(--paper);border:3px solid var(--ink);border-radius:22px;box-shadow:7px 7px 0 var(--ink);
+      padding:40px 34px;max-width:420px;text-align:center}
+    .card .sun{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:var(--orange);
+      border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:30px}
+    .card h1{font-size:26px;margin-bottom:8px}
+    .card p{color:var(--muted);font-size:14.5px;margin-bottom:24px}
+    .gbtn{display:inline-flex;align-items:center;gap:10px;font-family:"Baloo 2";font-weight:700;font-size:15px;
+      padding:12px 22px;border:2.5px solid var(--ink);border-radius:999px;background:#fff;cursor:pointer;
+      box-shadow:4px 4px 0 var(--ink);transition:.1s}
+    .gbtn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+    .err{color:#b8321a;font-size:14px;margin-top:18px;font-weight:600}
+    .hide{display:none !important}
+
+    /* stats */
+    .stats{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+    .stat{background:var(--paper);border:3px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);
+      padding:14px 20px;min-width:120px}
+    .stat .n{font-family:"Baloo 2";font-weight:800;font-size:30px;line-height:1}
+    .stat .l{font-size:12.5px;color:var(--muted);margin-top:4px;font-weight:500}
+    .stat.blue{background:var(--blue);color:#fff}
+    .stat.blue .l{color:#dbe4ff}
+
+    .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+    .toolbar .search{flex:1;min-width:200px;border:2.5px solid var(--ink);border-radius:12px;padding:10px 14px;
+      font-family:"Fredoka";font-size:14px;background:#fff}
+    .toolbar .search:focus{outline:none;box-shadow:3px 3px 0 var(--ink)}
+    .count{font-size:13px;color:var(--muted);margin-left:auto}
+
+    /* table */
+    .tablewrap{background:var(--paper);border:3px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--ink);overflow:auto;max-height:70vh}
+    table{border-collapse:collapse;width:100%;font-size:13px}
+    thead th{position:sticky;top:0;background:var(--ink);color:var(--cream);font-family:"Baloo 2";font-weight:700;
+      text-align:left;padding:11px 12px;white-space:nowrap;z-index:2}
+    tbody td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    tbody tr:nth-child(even){background:#fbf7ee}
+    tbody tr:hover{background:var(--cream)}
+    td.wide{min-width:220px;white-space:normal}
+    td.nowrap{white-space:nowrap}
+    .tag{display:inline-block;background:var(--cream);border:1.5px solid var(--ink);border-radius:999px;
+      padding:1px 8px;font-size:11.5px;margin:1px 2px 1px 0}
+    .yes{color:var(--ok);font-weight:700}
+    .no{color:#b0a488}
+    .empty{padding:50px;text-align:center;color:var(--muted)}
+    .loading{padding:50px;text-align:center;color:var(--muted);font-size:15px}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="in">
+      <div class="brand">Oli-Action <small>· 報名後台</small></div>
+      <div class="who hide" id="whoBox">
+        <img id="whoPic" alt="" />
+        <span id="whoName"></span>
+        <button class="btn sm" id="logoutBtn">登出</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="center" id="loginView">
+    <div class="card">
+      <div class="sun">🔆</div>
+      <h1>報名後台</h1>
+      <p>請用授權的 Google 帳號登入，才能檢視報名資料。</p>
+      <button class="gbtn" id="loginBtn">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#4285F4" d="M45 24c0-1.6-.1-3.1-.4-4.6H24v9.1h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7C42.6 36.7 45 30.9 45 24z"/><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.2-5.2l-7-5.5c-1.9 1.3-4.4 2.1-7.2 2.1-5.5 0-10.2-3.7-11.9-8.7H5v5.7C8.5 41.1 15.7 46 24 46z"/><path fill="#FBBC05" d="M12.1 28.7c-.4-1.3-.7-2.7-.7-4.7s.3-3.4.7-4.7v-5.7H5C3.8 16.7 3 20.3 3 24s.8 7.3 2 10.4l7.1-5.7z"/><path fill="#EA4335" d="M24 11.6c3.1 0 5.9 1.1 8.1 3.2l6.1-6.1C34.7 5.1 29.8 3 24 3 15.7 3 8.5 7.9 5 15.6l7.1 5.7c1.7-5 6.4-8.7 11.9-8.7z"/></svg>
+        使用 Google 登入
+      </button>
+      <div class="err hide" id="loginErr"></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="wrap hide" id="dashView">
+    <div class="stats" id="stats"></div>
+    <div class="toolbar">
+      <input class="search" id="search" placeholder="🔍 搜尋姓名、Email、科系、學號…" />
+      <button class="btn blue sm" id="csvBtn">⬇ 匯出 CSV (Excel)</button>
+      <button class="btn sm" id="jsonBtn">⬇ 匯出 JSON</button>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="tablewrap">
+      <div class="loading" id="loading">載入報名資料中…</div>
+      <table class="hide" id="table">
+        <thead><tr id="thead"></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty hide" id="empty">目前還沒有任何報名資料。</div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut }
+      from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCcL-2mIP_0-0NXSqdyzn2IxosiipbkTBA",
+      authDomain: "oli-action.firebaseapp.com",
+      databaseURL: "https://oli-action-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "oli-action",
+      storageBucket: "oli-action.firebasestorage.app",
+      messagingSenderId: "969906848959",
+      appId: "1:969906848959:web:5370d1e74d2ceaef9c720a"
+    };
+
+    // Authorized admins (add more organizer emails here if needed)
+    const ADMIN_EMAILS = ["youthbody78@gmail.com"];
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+    const provider = new GoogleAuthProvider();
+
+    const $ = id => document.getElementById(id);
+    const loginView=$("loginView"), dashView=$("dashView"), whoBox=$("whoBox");
+    let rows = [];
+
+    $("loginBtn").onclick = async () => {
+      $("loginErr").classList.add("hide");
+      try { await signInWithPopup(auth, provider); }
+      catch(e){ showLoginErr("登入失敗：" + (e.code || e.message)); }
+    };
+    $("logoutBtn").onclick = () => signOut(auth);
+
+    function showLoginErr(t){ const el=$("loginErr"); el.textContent=t; el.classList.remove("hide"); }
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user){
+        loginView.classList.remove("hide"); dashView.classList.add("hide"); whoBox.classList.add("hide");
+        return;
+      }
+      if (!ADMIN_EMAILS.includes(user.email)){
+        signOut(auth);
+        loginView.classList.remove("hide");
+        showLoginErr("此帳號（" + user.email + "）沒有檢視權限。");
+        return;
+      }
+      // authorized
+      $("whoPic").src = user.photoURL || "";
+      $("whoName").textContent = user.displayName || user.email;
+      whoBox.classList.remove("hide");
+      loginView.classList.add("hide");
+      dashView.classList.remove("hide");
+      loadData();
+    });
+
+    function loadData(){
+      onValue(ref(db, "registrations"), (snap) => {
+        const val = snap.val() || {};
+        rows = Object.entries(val).map(([id, r]) => ({ id, ...r }))
+          .filter(r => r.fullName !== "__CONNECTION_TEST__") // hide known test node
+          .sort((a,b) => (b.submittedAt||"").localeCompare(a.submittedAt||""));
+        render();
+      }, (err) => {
+        $("loading").textContent = "讀取失敗：" + err.message + "（請確認資料庫規則已允許此帳號讀取）";
+      });
+    }
+
+    // column definitions: [key, label, type]
+    const COLS = [
+      ["submittedAt","報名時間","time"],
+      ["fullName","Full Name","t"],
+      ["preferredName","Nickname","t"],
+      ["gender","Gender","t"],
+      ["dob","DOB","t"],
+      ["email","Email","t"],
+      ["phone","Phone/WhatsApp","t"],
+      ["department","Department","t"],
+      ["year","Year","t"],
+      ["registerNumber","Register No.","t"],
+      ["sessions","Sessions","arr"],
+      ["languages","Languages","arr"],
+      ["experience","Exp.","t"],
+      ["skills","Skills","wide"],
+      ["motivation","Motivation","wide"],
+      ["dietary","Dietary","t"],
+      ["emergencyName","Emergency Name","t"],
+      ["emergencyPhone","Emergency Phone","t"],
+      ["commit","Commit","bool"],
+      ["photoConsent","Photo OK","bool"]
+    ];
+
+    function fmtTime(iso){ if(!iso) return ""; const d=new Date(iso); if(isNaN(d)) return iso;
+      return d.toLocaleString("zh-TW",{year:"2-digit",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}); }
+
+    function render(){
+      const q = $("search").value.trim().toLowerCase();
+      const list = q ? rows.filter(r => JSON.stringify(r).toLowerCase().includes(q)) : rows;
+
+      // stats
+      const total = rows.length;
+      const s1 = rows.filter(r => (r.sessions||[]).some(s=>s.includes("Jul 29"))).length;
+      const s2 = rows.filter(r => (r.sessions||[]).some(s=>s.includes("Jul 30"))).length;
+      const s3 = rows.filter(r => (r.sessions||[]).some(s=>s.includes("Aug 3"))).length;
+      $("stats").innerHTML =
+        stat(total,"總報名人數","blue") + stat(s1,"Jul 29 工作坊") + stat(s2,"Jul 30 培訓") + stat(s3,"Aug 3-4 營隊");
+      $("count").textContent = q ? (list.length + " / " + total + " 筆") : (total + " 筆");
+
+      $("loading").classList.add("hide");
+      if (total === 0){ $("table").classList.add("hide"); $("empty").classList.remove("hide"); return; }
+      $("empty").classList.add("hide"); $("table").classList.remove("hide");
+
+      $("thead").innerHTML = "<th>#</th>" + COLS.map(c=>`<th>${c[1]}</th>`).join("");
+      $("tbody").innerHTML = list.map((r,i)=>{
+        const cells = COLS.map(([k,,type])=>{
+          const v = r[k];
+          if(type==="time") return `<td class="nowrap">${esc(fmtTime(v))}</td>`;
+          if(type==="arr"){ const a=Array.isArray(v)?v:(v?[v]:[]);
+            return `<td>${a.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</td>`; }
+          if(type==="bool") return `<td>${v?'<span class="yes">✓</span>':'<span class="no">–</span>'}</td>`;
+          if(type==="wide") return `<td class="wide">${esc(v||"")}</td>`;
+          return `<td>${esc(v||"")}</td>`;
+        }).join("");
+        return `<tr><td>${i+1}</td>${cells}</tr>`;
+      }).join("");
+    }
+    function stat(n,l,cls){ return `<div class="stat ${cls||''}"><div class="n">${n}</div><div class="l">${l}</div></div>`; }
+    function esc(s){ return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+    $("search").oninput = render;
+
+    // ---- exports ----
+    function download(name, text, mime){
+      const blob = new Blob(["﻿"+text], {type:mime});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob); a.download = name; a.click();
+      setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+    }
+    const stamp = () => new Date().toISOString().slice(0,10);
+
+    $("csvBtn").onclick = () => {
+      if(!rows.length) return;
+      const keys = COLS.map(c=>c[0]);
+      const head = COLS.map(c=>c[1]);
+      const csvCell = v => {
+        if(Array.isArray(v)) v = v.join("; ");
+        if(v===undefined||v===null) v = "";
+        if(typeof v==="boolean") v = v?"Yes":"No";
+        v = String(v);
+        return /[",\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v;
+      };
+      const lines = [head.join(",")].concat(
+        rows.map(r => keys.map(k => csvCell(k==="submittedAt"? r[k] : r[k])).join(","))
+      );
+      download(`oli-action-registrations-${stamp()}.csv`, lines.join("\r\n"), "text/csv;charset=utf-8");
+    };
+    $("jsonBtn").onclick = () => {
+      if(!rows.length) return;
+      download(`oli-action-registrations-${stamp()}.json`, JSON.stringify(rows,null,2), "application/json");
+    };
+  </script>
+</body>
+</html>
