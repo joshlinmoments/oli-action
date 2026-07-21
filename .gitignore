@@ -1,2 +1,8 @@
 .DS_Store
 proposal.pdf
+# heavy original assets — ship only web-optimized versions
+assets/banner.png
+assets/mascot.png
+assets/title-cn-black.png
+assets/title-cn-white.png
+assets/logo-crop-test.png

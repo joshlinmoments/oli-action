@@ -3,180 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oli-Action International Volunteer Program · 歡印光臨</title>
-  <meta name="description" content="Join the Oli-Action International Volunteer Program — a Taiwan–India youth service journey by the Baiyangshan Charitable Foundation and Sathyabama Institute of Science and Technology (SIST). Cultural Exchange × Character Education × Teamwork." />
-  <meta property="og:title" content="Oli-Action International Volunteer Program · 歡印光臨" />
-  <meta property="og:description" content="A Radiant Welcome — Taiwan × India youth volunteers, walking hand in hand to bring light to local schools. Register now." />
+  <title>Oli-Action · South India Volunteer Team · 歡印光臨</title>
+  <meta name="description" content="Oli-Action — South India Volunteer Team by the Baiyangshan Charitable Foundation × Sathyabama Institute of Science and Technology (SIST). Cultural Exchange × Character Education × Teamwork. Register now!" />
+  <meta property="og:title" content="Oli-Action · South India Volunteer Team · 歡印光臨" />
+  <meta property="og:description" content="A Radiant Welcome — Taiwan × India youth volunteers bringing light to local schools. Register now!" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/banner-web.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E89E23'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23fff' stroke='%2317130C' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@500;600;700&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#0a0e1a;
-      --bg2:#121a30;
-      --panel:#141d33;
-      --panel2:#18223c;
-      --gold:#f5c76a;
-      --gold-soft:#e9b451;
-      --marigold:#ff9a3c;
-      --text:#f4f1ea;
-      --muted:#a7afc2;
-      --line:rgba(245,199,106,.20);
-      --line-soft:rgba(255,255,255,.08);
-      --ok:#5fd39a;
-      --err:#ff7a7a;
+      --orange:#E89E23;
+      --orange-lite:#F2B84B;
+      --orange-deep:#C9820F;
+      --ink:#17130C;
+      --paper:#FFFDF7;
+      --cream:#FFF1D4;
+      --blue:#26449D;
+      --blue-lite:#3358c4;
+      --shadow:6px 6px 0 var(--ink);
+      --shadow-sm:4px 4px 0 var(--ink);
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,Segoe UI,sans-serif;
-      background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;
+      font-family:"Fredoka","Noto Sans TC",system-ui,-apple-system,sans-serif;
+      color:var(--ink);line-height:1.6;overflow-x:hidden;
+      background-color:var(--orange);
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='140' viewBox='0 0 240 140'%3E%3Cg fill='none' stroke='%23C9820F' stroke-width='4' opacity='0.5'%3E%3Crect x='14' y='20' width='46' height='58' rx='16'/%3E%3Ccircle cx='110' cy='46' r='26'/%3E%3Crect x='150' y='16' width='30' height='64' rx='14'/%3E%3Crect x='196' y='20' width='30' height='60' rx='14'/%3E%3Crect x='60' y='96' width='54' height='34' rx='15'/%3E%3Ccircle cx='170' cy='114' r='22'/%3E%3C/g%3E%3C/svg%3E");
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-    .accent{color:var(--gold)}
-    .marigold{color:var(--marigold)}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+    h1,h2,h3,h4,.display{font-family:"Baloo 2","Noto Sans TC",sans-serif}
 
-    /* ---------- background glow ---------- */
-    .bgglow{position:fixed;inset:0;z-index:-2;pointer-events:none;
-      background:
-        radial-gradient(60vw 55vw at 50% -12%, rgba(245,199,106,.16), transparent 60%),
-        radial-gradient(45vw 45vw at 88% 8%, rgba(255,154,60,.10), transparent 60%),
-        radial-gradient(48vw 48vw at 6% 92%, rgba(120,150,255,.08), transparent 60%),
-        linear-gradient(180deg,var(--bg),var(--bg2));}
-    .stars{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.45}
-    .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);
-      box-shadow:0 0 6px 1px rgba(245,199,106,.6);animation:tw 4s infinite ease-in-out}
-    @keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+    /* ---- comic building blocks ---- */
+    .panel{background:var(--paper);border:3px solid var(--ink);border-radius:22px;box-shadow:var(--shadow)}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:"Baloo 2",sans-serif;font-weight:700;
+      font-size:16px;padding:13px 26px;border:3px solid var(--ink);border-radius:999px;cursor:pointer;
+      box-shadow:var(--shadow-sm);transition:transform .12s,box-shadow .12s;background:var(--paper);color:var(--ink)}
+    .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+    .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+    .btn.blue{background:var(--blue);color:#fff}
+    .btn.dark{background:var(--ink);color:var(--orange-lite)}
+    .btn.white{background:#fff}
+    .pill{display:inline-block;font-family:"Baloo 2",sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;
+      text-transform:uppercase;padding:7px 15px;border:2.5px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--orange-lite)}
 
-    /* ---------- nav ---------- */
-    header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
-      background:rgba(10,14,26,.72);border-bottom:1px solid var(--line-soft)}
-    .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
-    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.02em}
-    .brand .orb{width:26px;height:26px;border-radius:50%;
-      background:radial-gradient(circle at 50% 40%,#fff6df,var(--gold) 45%,var(--gold-soft) 70%,transparent 72%);
-      box-shadow:0 0 18px 3px rgba(245,199,106,.5)}
-    .navlinks{display:flex;gap:26px;font-size:14px;color:var(--muted)}
-    .navlinks a:hover{color:var(--gold)}
-    .navlinks .cta{color:var(--bg);background:var(--gold);padding:8px 16px;border-radius:999px;font-weight:700}
-    .navlinks .cta:hover{background:var(--gold-soft);color:var(--bg)}
-    @media(max-width:720px){.navlinks a:not(.cta){display:none}}
+    /* ---- nav ---- */
+    header.nav{position:sticky;top:0;z-index:60;background:var(--orange);border-bottom:3px solid var(--ink)}
+    .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{font-family:"Baloo 2";font-weight:800;font-size:23px;color:var(--ink);letter-spacing:.01em}
+    .brand .dot{color:#fff;-webkit-text-stroke:2px var(--ink)}
+    .navlinks{display:flex;align-items:center;gap:22px;font-family:"Baloo 2";font-weight:600;font-size:15px}
+    .navlinks a:not(.btn):hover{color:var(--blue)}
+    @media(max-width:720px){.navlinks a:not(.btn){display:none}}
 
-    /* ---------- hero ---------- */
-    .hero{position:relative;text-align:center;padding:74px 0 64px}
-    .lantern{width:84px;height:84px;margin:0 auto 26px;border-radius:50%;
-      background:radial-gradient(circle at 50% 40%,#fff6df,var(--gold) 45%,var(--gold-soft) 70%,transparent 72%);
-      box-shadow:0 0 60px 12px rgba(245,199,106,.42);animation:float 6s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-    .kicker{letter-spacing:.4em;font-size:12px;color:var(--gold);text-transform:uppercase;margin-bottom:18px;padding-left:.4em}
-    .hero h1{font-size:clamp(40px,8.4vw,78px);font-weight:800;line-height:1.02;letter-spacing:.01em}
-    .hero .zh{display:block;font-size:clamp(20px,5vw,30px);font-weight:700;color:var(--gold);margin-top:16px;letter-spacing:.14em}
-    .hero .lead{max-width:44ch;margin:24px auto 0;color:var(--muted);font-size:clamp(15px,4vw,18px)}
-    .hero .partners{margin-top:22px;font-size:13.5px;color:var(--muted);letter-spacing:.04em}
-    .hero .partners b{color:var(--text)}
-    .btns{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-    .btn{padding:13px 28px;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;border:1px solid transparent;transition:.2s}
-    .btn.primary{background:var(--gold);color:var(--bg)}
-    .btn.primary:hover{background:var(--gold-soft);transform:translateY(-2px)}
-    .btn.ghost{border-color:var(--line);color:var(--text);background:transparent}
-    .btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+    /* ---- hero ---- */
+    .hero{position:relative;padding:40px 0 20px}
+    .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:center}
+    @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;text-align:center}}
+    .hero h1{font-weight:800;font-size:clamp(58px,13vw,132px);line-height:.9;color:#fff;
+      -webkit-text-stroke:clamp(3px,.7vw,5px) var(--ink);paint-order:stroke fill;
+      text-shadow:5px 6px 0 var(--ink);letter-spacing:.005em}
+    .hero .sub{font-family:"Baloo 2";font-weight:800;font-size:clamp(19px,4.2vw,34px);color:var(--ink);
+      letter-spacing:.02em;margin-top:10px;line-height:1.05}
+    .hero .zh{font-family:"Noto Sans TC";font-weight:900;font-size:clamp(16px,3.6vw,23px);
+      color:var(--ink);margin-top:12px;letter-spacing:.06em}
+    .hero .zh b{background:var(--ink);color:var(--orange-lite);padding:2px 9px;border-radius:8px}
+    .hero .lead{font-size:clamp(15px,3.6vw,17px);color:var(--ink);margin-top:18px;max-width:46ch;font-weight:500}
+    @media(max-width:860px){.hero .lead{margin-left:auto;margin-right:auto}}
+    .hero .lead b{background:#fff;border:2px solid var(--ink);border-radius:6px;padding:0 6px}
+    .btns{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+    @media(max-width:860px){.btns{justify-content:center}}
+    .hero .mascot{position:relative;display:flex;justify-content:center;align-items:flex-end}
+    .hero .mascot img{width:min(94%,420px);height:auto;filter:drop-shadow(8px 10px 0 rgba(23,19,12,.18));
+      animation:bob 4.5s ease-in-out infinite}
+    @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(1deg)}}
 
-    /* ---------- sections ---------- */
-    section{padding:64px 0}
-    .eyebrow{letter-spacing:.32em;font-size:12px;color:var(--marigold);text-transform:uppercase;margin-bottom:12px}
-    h2{font-size:clamp(26px,5.4vw,40px);font-weight:800;line-height:1.15;margin-bottom:18px}
-    .sec-lead{color:var(--muted);max-width:66ch;font-size:16px}
+    .titleband{margin:14px 0 8px;text-align:center}
+    .titleband img{width:min(88%,760px);height:auto}
 
-    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-    @media(max-width:760px){.pillars{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line-soft);
-      border-radius:18px;padding:26px 22px;transition:.2s}
-    .card:hover{border-color:var(--line);transform:translateY(-3px)}
-    .card .ic{font-size:26px;margin-bottom:14px}
-    .card h3{font-size:18px;margin-bottom:8px}
-    .card p{color:var(--muted);font-size:14.5px}
+    /* ---- sections ---- */
+    section{padding:54px 0}
+    .sec-head{margin-bottom:26px}
+    .eyebrow{margin-bottom:14px}
+    h2{font-weight:800;font-size:clamp(28px,6vw,46px);line-height:1.05;color:var(--ink)}
+    .sec-lead{font-size:16.5px;max-width:64ch;font-weight:500;color:var(--ink);margin-top:12px}
+
+    .about .panel{padding:clamp(26px,5vw,44px);position:relative}
+    .about p{font-size:17px;font-weight:500}
+    .about em{font-style:normal;background:var(--orange-lite);border:2px solid var(--ink);border-radius:6px;padding:0 6px}
+
+    /* pillars */
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media(max-width:800px){.pillars{grid-template-columns:1fr}}
+    .pcard{padding:26px 22px;background:var(--paper)}
+    .pcard.b1{background:var(--cream)}
+    .pcard.b2{background:#EAF0FF}
+    .pcard.b3{background:#FFE7D6}
+    .pcard .ic{width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:30px;
+      border:3px solid var(--ink);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);margin-bottom:16px}
+    .pcard h3{font-weight:800;font-size:21px;margin-bottom:8px}
+    .pcard p{font-size:15px;font-weight:500}
 
     /* schedule */
-    .timeline{margin-top:34px;display:flex;flex-direction:column;gap:14px}
-    .tl{display:grid;grid-template-columns:130px 1fr;gap:18px;background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid var(--line-soft);border-radius:16px;padding:20px 22px}
-    @media(max-width:640px){.tl{grid-template-columns:1fr;gap:8px}}
-    .tl .date{font-weight:800;color:var(--gold)}
-    .tl .date span{display:block;font-size:12.5px;color:var(--muted);font-weight:500;margin-top:3px}
-    .tl h4{font-size:16px;margin-bottom:8px}
-    .tl ul{margin:0 0 0 18px;color:var(--muted);font-size:14px}
+    .timeline{display:flex;flex-direction:column;gap:18px}
+    .tl{display:grid;grid-template-columns:150px 1fr;gap:0;background:var(--paper);overflow:hidden}
+    @media(max-width:640px){.tl{grid-template-columns:1fr}}
+    .tl .date{background:var(--blue);color:#fff;padding:20px;font-family:"Baloo 2";font-weight:800;font-size:22px;
+      display:flex;flex-direction:column;justify-content:center;border-right:3px solid var(--ink)}
+    @media(max-width:640px){.tl .date{border-right:none;border-bottom:3px solid var(--ink);font-size:20px}}
+    .tl .date span{font-family:"Fredoka";font-weight:600;font-size:13.5px;opacity:.95;margin-top:4px}
+    .tl .body{padding:20px 24px}
+    .tl h4{font-weight:800;font-size:19px;margin-bottom:8px}
+    .tl ul{margin:0 0 0 18px;font-size:14.5px;font-weight:500}
     .tl li{margin:3px 0}
-    .tl .venue{margin-top:8px;font-size:12.5px;color:var(--marigold)}
+    .tl .venue{margin-top:10px;display:inline-block;font-family:"Baloo 2";font-weight:700;font-size:12.5px;
+      background:var(--orange-lite);border:2px solid var(--ink);border-radius:999px;padding:3px 12px}
 
-    /* ---------- form ---------- */
-    .formsec{background:linear-gradient(180deg,rgba(20,29,51,.5),rgba(24,34,60,.5));
-      border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
-    .formcard{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
-      border-radius:22px;padding:clamp(24px,5vw,42px);margin-top:34px}
-    .fgroup{margin-bottom:30px}
-    .fgroup > .glabel{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;
-      color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;
-      padding-bottom:10px;border-bottom:1px solid var(--line-soft)}
+    /* ---- form ---- */
+    .register .panel{padding:clamp(24px,5vw,44px);position:relative}
+    .register .mascot-peek{position:absolute;right:-10px;top:-96px;width:120px;height:auto;
+      transform:rotate(6deg);filter:drop-shadow(4px 5px 0 rgba(23,19,12,.2));pointer-events:none}
+    @media(max-width:640px){.register .mascot-peek{width:84px;top:-66px;right:6px}}
+    .fgroup{margin-bottom:28px}
+    .fgroup > .glabel{display:inline-flex;align-items:center;gap:9px;font-family:"Baloo 2";font-weight:800;font-size:16px;
+      color:#fff;background:var(--blue);border:3px solid var(--ink);border-radius:999px;padding:7px 18px;
+      box-shadow:var(--shadow-sm);margin-bottom:18px}
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     @media(max-width:600px){.grid2{grid-template-columns:1fr}}
     .field{display:flex;flex-direction:column;gap:7px}
     .field.full{grid-column:1/-1}
-    label{font-size:13.5px;color:var(--text);font-weight:600}
-    label .req{color:var(--marigold);margin-left:3px}
-    .hint{font-size:12px;color:var(--muted);font-weight:400}
-    input[type=text],input[type=email],input[type=tel],input[type=date],input[type=number],select,textarea{
-      width:100%;background:rgba(10,14,26,.6);border:1px solid var(--line-soft);border-radius:11px;
-      padding:12px 14px;color:var(--text);font-size:15px;font-family:inherit;transition:.15s}
-    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,199,106,.14)}
+    label{font-family:"Baloo 2";font-size:14.5px;color:var(--ink);font-weight:600}
+    label .req{color:#d63b1f;margin-left:2px}
+    .hint{font-family:"Fredoka";font-size:12px;color:#8a7a5c;font-weight:500}
+    input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{
+      width:100%;background:#fff;border:2.5px solid var(--ink);border-radius:12px;
+      padding:12px 14px;color:var(--ink);font-size:15px;font-family:"Fredoka",sans-serif;font-weight:500;transition:.12s}
+    input:focus,select:focus,textarea:focus{outline:none;background:var(--cream);box-shadow:var(--shadow-sm)}
     textarea{resize:vertical;min-height:88px}
-    select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a7afc2' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%2317130C' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
       background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
     .checks{display:flex;flex-direction:column;gap:11px}
-    .checks.row{flex-flow:row wrap;gap:14px}
-    .chk{display:flex;align-items:flex-start;gap:11px;background:rgba(10,14,26,.4);border:1px solid var(--line-soft);
-      border-radius:11px;padding:13px 15px;cursor:pointer;transition:.15s;flex:1;min-width:200px}
-    .chk:hover{border-color:var(--line)}
-    .chk input{margin-top:3px;width:17px;height:17px;accent-color:var(--gold);cursor:pointer;flex-shrink:0}
-    .chk .ct{font-size:14px}
-    .chk .ct b{display:block}
-    .chk .ct small{color:var(--muted);font-size:12.5px}
+    .checks.row{flex-flow:row wrap;gap:12px}
+    .chk{display:flex;align-items:flex-start;gap:11px;background:#fff;border:2.5px solid var(--ink);
+      border-radius:12px;padding:12px 15px;cursor:pointer;transition:.12s;flex:1;min-width:180px}
+    .chk:hover{background:var(--cream);box-shadow:var(--shadow-sm)}
+    .chk input{margin-top:2px;width:18px;height:18px;accent-color:var(--blue);cursor:pointer;flex-shrink:0}
+    .chk .ct{font-size:14px;font-weight:500;font-family:"Fredoka"}
+    .chk .ct b{display:block;font-family:"Baloo 2";font-weight:700}
+    .chk .ct small{color:#8a7a5c;font-size:12.5px}
     .submitrow{margin-top:8px;display:flex;flex-direction:column;align-items:center;gap:14px}
-    .btn.submit{background:var(--gold);color:var(--bg);width:100%;max-width:340px;font-size:16px;padding:15px}
-    .btn.submit:hover{background:var(--gold-soft)}
-    .btn.submit:disabled{opacity:.6;cursor:not-allowed}
-    .formnote{font-size:12.5px;color:var(--muted);text-align:center;max-width:52ch}
-    .msg{display:none;padding:14px 18px;border-radius:12px;font-size:14.5px;text-align:center;width:100%;max-width:460px}
+    .btn.submit{background:var(--blue);color:#fff;width:100%;max-width:360px;font-size:18px;padding:16px;justify-content:center}
+    .btn.submit:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:var(--shadow-sm)}
+    .formnote{font-family:"Fredoka";font-size:12.5px;color:#8a7a5c;text-align:center;max-width:52ch;font-weight:500}
+    .msg{display:none;padding:14px 18px;border:2.5px solid var(--ink);border-radius:12px;font-family:"Baloo 2";
+      font-weight:600;font-size:14.5px;text-align:center;width:100%;max-width:480px;box-shadow:var(--shadow-sm)}
     .msg.show{display:block}
-    .msg.ok{background:rgba(95,211,154,.12);border:1px solid rgba(95,211,154,.4);color:var(--ok)}
-    .msg.err{background:rgba(255,122,122,.1);border:1px solid rgba(255,122,122,.4);color:var(--err)}
-    .msg.info{background:rgba(245,199,106,.1);border:1px solid var(--line);color:var(--gold)}
-
-    /* success screen */
-    .thanks{display:none;text-align:center;padding:24px 0}
+    .msg.ok{background:#d6f5e3;color:#166c40}
+    .msg.err{background:#ffd9d2;color:#b8321a}
+    .msg.info{background:var(--orange-lite);color:var(--ink)}
+    .thanks{display:none;text-align:center;padding:20px 0}
     .thanks.show{display:block}
-    .thanks .big{width:76px;height:76px;margin:0 auto 20px;border-radius:50%;
-      background:radial-gradient(circle at 50% 40%,#fff6df,var(--gold) 50%,transparent 72%);
-      box-shadow:0 0 46px 10px rgba(245,199,106,.4);display:flex;align-items:center;justify-content:center;font-size:34px}
-    .thanks h3{font-size:26px;margin-bottom:10px}
-    .thanks p{color:var(--muted);max-width:44ch;margin:0 auto}
+    .thanks img{width:150px;height:auto;margin:0 auto 14px;display:block}
+    .thanks h3{font-weight:800;font-size:28px;margin-bottom:10px}
+    .thanks p{font-size:16px;font-weight:500;max-width:46ch;margin:0 auto}
 
-    footer.site{padding:40px 0;text-align:center;border-top:1px solid var(--line-soft);color:var(--muted);font-size:13px}
-    footer.site .org{color:var(--text);font-weight:700}
-    footer.site .sm{margin-top:8px;font-size:12px;letter-spacing:.06em}
+    footer.site{background:var(--ink);color:var(--cream);padding:38px 0;text-align:center;border-top:3px solid var(--ink)}
+    footer.site .brandline{font-family:"Baloo 2";font-weight:800;font-size:20px;color:#fff}
+    footer.site .org{color:var(--orange-lite)}
+    footer.site .sm{font-family:"Fredoka";margin-top:8px;font-size:13px;letter-spacing:.04em;opacity:.85}
   </style>
 </head>
 <body>
-  <div class="bgglow"></div>
-  <div class="stars" id="stars"></div>
-
   <!-- NAV -->
   <header class="nav">
     <div class="wrap">
-      <a class="brand" href="#top"><span class="orb"></span> Oli-Action</a>
+      <a class="brand" href="#top">Oli<span class="dot">-</span>Action</a>
       <nav class="navlinks">
         <a href="#about">About</a>
         <a href="#pillars">Program</a>
         <a href="#schedule">Schedule</a>
-        <a class="cta" href="#register">Register</a>
+        <a class="btn blue" href="#register">Register ✋</a>
       </nav>
     </div>
   </header>
@@ -185,46 +195,60 @@
   <a id="top"></a>
   <section class="hero">
     <div class="wrap">
-      <div class="lantern"></div>
-      <div class="kicker">Taiwan × India · International Volunteer Program</div>
-      <h1>Oli-Action
-        <span class="zh">歡 印 光 臨 · A Radiant Welcome</span>
-      </h1>
-      <p class="lead">In Tamil, <b class="accent">"Oli"</b> means <b class="accent">light</b>. Join hands with volunteers from Taiwan to bring warmth, hope, and joy to local children — and become a beam of light that illuminates others.</p>
-      <p class="partners">Organized by <b>Baiyangshan Charitable Foundation</b> &nbsp;×&nbsp; <b>Sathyabama Institute of Science &amp; Technology (SIST)</b></p>
-      <div class="btns">
-        <a class="btn primary" href="#register">Register as a Volunteer</a>
-        <a class="btn ghost" href="#about">Learn More</a>
+      <div class="herotext">
+        <span class="pill">Taiwan × India · International Volunteer</span>
+        <h1>Oli-Action</h1>
+        <div class="sub">SOUTH INDIA VOLUNTEER TEAM</div>
+        <div class="zh"><b>歡印光臨</b>　南印度海外志工團</div>
+        <p class="lead">In Tamil, <b>“Oli”</b> means <b>light</b>. Team up with volunteers from Taiwan to bring warmth, joy, and hope to local children — and become a beam of light that shines for others! ✨</p>
+        <div class="btns">
+          <a class="btn blue" href="#register">Register as a Volunteer ✋</a>
+          <a class="btn white" href="#about">Learn More</a>
+        </div>
+      </div>
+      <div class="mascot">
+        <img src="assets/mascot-web.png" alt="Oli-Action volunteer mascot cheering" />
       </div>
     </div>
   </section>
 
+  <!-- title band -->
+  <div class="titleband wrap">
+    <img src="assets/title-black-web.png" alt="2026 南印度海外志工團" />
+  </div>
+
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="about">
     <div class="wrap">
-      <div class="eyebrow">About the Program</div>
-      <h2>Cultural Exchange, hand in hand.</h2>
-      <p class="sec-lead">The Baiyangshan Charitable Foundation, a non-profit based in Taiwan, is guided by the mission of <em>“purifying minds and inspiring cultural reformation.”</em> Together with students from SIST, we form a joint international volunteer team to serve children at local Government Schools in India. Through training, co-creation, and exchange, participants develop cross-cultural communication skills, teamwork, and a global perspective — while bringing light and hope to others through practical action.</p>
+      <div class="sec-head">
+        <div class="eyebrow"><span class="pill">About the Program</span></div>
+        <h2>Cultural Exchange, hand in hand 🤝</h2>
+      </div>
+      <div class="panel">
+        <p>The <strong>Baiyangshan Charitable Foundation</strong>, a non-profit based in Taiwan, is guided by the mission of <em>“purifying minds &amp; inspiring cultural reformation.”</em> Together with students from <strong>SIST</strong>, we form a joint international volunteer team to serve children at local Government Schools in India. Through training, co-creation, and exchange, participants build cross-cultural communication skills, teamwork, and a global perspective — while bringing light and hope to others through practical action.</p>
+      </div>
     </div>
   </section>
 
   <!-- PILLARS -->
-  <section id="pillars" style="padding-top:12px">
+  <section id="pillars">
     <div class="wrap">
-      <div class="eyebrow">Core Pillars</div>
-      <h2>Cultural Exchange × Character Education × Teamwork</h2>
+      <div class="sec-head">
+        <div class="eyebrow"><span class="pill">Core Pillars</span></div>
+        <h2>Cultural Exchange × Character Education × Teamwork</h2>
+      </div>
       <div class="pillars">
-        <div class="card">
+        <div class="pcard panel b1">
           <div class="ic">🎎</div>
           <h3>Taiwan Cultural Exchange</h3>
-          <p>Interactive Chinese learning, cultural riddles, and hands-on craft experiences that build mutual understanding between Taiwanese and Indian youth.</p>
+          <p>Interactive Chinese learning, cultural riddles, and hands-on crafts that build friendship between Taiwanese and Indian youth.</p>
         </div>
-        <div class="card">
+        <div class="pcard panel b2">
           <div class="ic">🌱</div>
           <h3>Volunteer Training</h3>
-          <p>Led by Taiwanese facilitators — team-building, lesson-plan rehearsals, and practical simulations that grow your leadership and spirit of service.</p>
+          <p>Led by Taiwanese facilitators — team-building, lesson rehearsals, and practical simulations that grow your leadership and spirit of service.</p>
         </div>
-        <div class="card">
+        <div class="pcard panel b3">
           <div class="ic">🏫</div>
           <h3>School Camp Service</h3>
           <p>Taiwanese and Indian volunteers join hands to visit Government Schools, inspiring children through character games and team challenges.</p>
@@ -236,44 +260,46 @@
   <!-- SCHEDULE -->
   <section id="schedule">
     <div class="wrap">
-      <div class="eyebrow">Itinerary</div>
-      <h2>Program Schedule</h2>
-      <p class="sec-lead">Volunteers are welcome to join any or all of the sessions below. Venues are on the SIST campus and at schools arranged by SIST.</p>
+      <div class="sec-head">
+        <div class="eyebrow"><span class="pill">Itinerary</span></div>
+        <h2>Program Schedule 📅</h2>
+        <p class="sec-lead">Join any or all of the sessions below. Venues are on the SIST campus and at schools arranged by SIST.</p>
+      </div>
       <div class="timeline">
-        <div class="tl">
+        <div class="tl panel">
           <div class="date">Jul 29<span>Wed · 13:30–16:30</span></div>
-          <div>
+          <div class="body">
             <h4>Taiwan Cultural Exchange Workshop</h4>
             <ul>
-              <li>Chinese Learning Game: “Turnip Down” (蘿蔔蹲) with Chinese greetings</li>
-              <li>Taiwan Cultural Riddles &amp; DIY Traditional Fortune Slips (籤詩)</li>
-              <li>Oli-Action Introduction &amp; invitation to volunteer training</li>
+              <li>Chinese learning game: “Turnip Down” (蘿蔔蹲) with Chinese greetings</li>
+              <li>Taiwan cultural riddles &amp; DIY Traditional Fortune Slips (籤詩)</li>
+              <li>Oli-Action introduction &amp; invitation to volunteer training</li>
             </ul>
-            <div class="venue">Venue: SIST campus (TBC)</div>
+            <span class="venue">📍 SIST campus (TBC)</span>
           </div>
         </div>
-        <div class="tl">
+        <div class="tl panel">
           <div class="date">Jul 30<span>Thu · 09:00–16:00</span></div>
-          <div>
+          <div class="body">
             <h4>Volunteer Training Program</h4>
             <ul>
               <li>Icebreakers &amp; team-building for sub-teams</li>
               <li>Lesson-plan rehearsal &amp; practical stage simulations</li>
               <li>Wrap-up &amp; run-through of the full camp flow</li>
             </ul>
-            <div class="venue">Venue: SIST campus (TBC)</div>
+            <span class="venue">📍 SIST campus (TBC)</span>
           </div>
         </div>
-        <div class="tl">
+        <div class="tl panel">
           <div class="date">Aug 3 &amp; 4<span>Mon &amp; Tue · 09:00–15:00</span></div>
-          <div>
+          <div class="body">
             <h4>Government School Camp Activities</h4>
             <ul>
               <li>Welcome session, opening ceremony &amp; character games</li>
-              <li>DIY Craft: “A Letter to My Parents” workshop</li>
+              <li>DIY craft: “A Letter to My Parents” workshop</li>
               <li>Challenge stations on Empathy &amp; Multiculturalism, closing &amp; awards</li>
             </ul>
-            <div class="venue">Two schools, arranged by SIST (TBC)</div>
+            <span class="venue">📍 Two schools, arranged by SIST (TBC)</span>
           </div>
         </div>
       </div>
@@ -281,18 +307,22 @@
   </section>
 
   <!-- REGISTER -->
-  <section id="register" class="formsec">
+  <section id="register" class="register">
     <div class="wrap">
-      <div class="eyebrow">Join Us</div>
-      <h2>Volunteer Registration</h2>
-      <p class="sec-lead">Open to SIST students who wish to serve as volunteers. Fill in the form below — our team will contact you with the next steps. Fields marked <span class="marigold">*</span> are required.</p>
+      <div class="sec-head">
+        <div class="eyebrow"><span class="pill">Join Us</span></div>
+        <h2>Volunteer Registration ✋</h2>
+        <p class="sec-lead">Open to SIST students who want to serve as volunteers. Fill in the form — our team will reach out with the next steps. Fields marked <span style="color:#d63b1f;font-weight:700">*</span> are required.</p>
+      </div>
 
-      <div class="formcard">
+      <div class="panel">
+        <img class="mascot-peek" src="assets/mascot-web.png" alt="" aria-hidden="true" />
+
         <!-- SUCCESS SCREEN -->
         <div class="thanks" id="thanks">
-          <div class="big">🌟</div>
-          <h3>Thank you for joining the light!</h3>
-          <p>Your registration has been received. Our team will reach out to you soon with the next steps. We can't wait to serve alongside you. 🙏</p>
+          <img src="assets/mascot-web.png" alt="" />
+          <h3>Thank you for joining the light! 🌟</h3>
+          <p>Your registration has been received. Our team will reach out to you soon with the next steps. We can't wait to serve alongside you! 🙏</p>
         </div>
 
         <form id="regForm" novalidate>
@@ -301,7 +331,7 @@
             <div class="glabel">① Personal Information</div>
             <div class="grid2">
               <div class="field">
-                <label>Full Name <span class="req">*</span><span class="hint">(as in your ID)</span></label>
+                <label>Full Name <span class="req">*</span> <span class="hint">(as in your ID)</span></label>
                 <input type="text" name="fullName" required autocomplete="name" />
               </div>
               <div class="field">
@@ -334,7 +364,7 @@
 
           <!-- Academic -->
           <div class="fgroup">
-            <div class="glabel">② Academic Information (SIST)</div>
+            <div class="glabel">② Academic Info (SIST)</div>
             <div class="grid2">
               <div class="field full">
                 <label>University / Institution <span class="req">*</span></label>
@@ -357,7 +387,7 @@
                 </select>
               </div>
               <div class="field full">
-                <label>Register Number <span class="req">*</span><span class="hint">(SIST student ID)</span></label>
+                <label>Register Number <span class="req">*</span> <span class="hint">(SIST student ID)</span></label>
                 <input type="text" name="registerNumber" required />
               </div>
             </div>
@@ -432,7 +462,7 @@
             <div class="glabel">⑤ Consent</div>
             <div class="checks">
               <label class="chk"><input type="checkbox" name="commit" value="yes" required />
-                <span class="ct"><b>I confirm my intention to participate <span class="marigold">*</span></b><small>I understand this is a volunteer commitment and will attend the sessions I selected.</small></span></label>
+                <span class="ct"><b>I confirm my intention to participate <span class="req">*</span></b><small>I understand this is a volunteer commitment and will attend the sessions I selected.</small></span></label>
               <label class="chk"><input type="checkbox" name="photoConsent" value="yes" />
                 <span class="ct"><b>Photo / video consent</b><small>I allow the Foundation to use photos/videos from the program for non-commercial, educational and promotional purposes.</small></span></label>
             </div>
@@ -440,7 +470,7 @@
 
           <div class="submitrow">
             <div class="msg" id="formMsg"></div>
-            <button type="submit" class="btn submit" id="submitBtn">Submit Registration</button>
+            <button type="submit" class="btn submit" id="submitBtn">Submit Registration ✋</button>
             <p class="formnote">Your information is kept private and used only for organizing this volunteer program.</p>
           </div>
         </form>
@@ -450,8 +480,8 @@
 
   <footer class="site">
     <div class="wrap">
-      <div><span class="org">Baiyangshan Charitable Foundation</span> · 白陽山慈善基金會</div>
-      <div class="sm">Oli-Action International Volunteer Program · 歡印光臨　|　Taiwan → South India</div>
+      <div class="brandline"><span class="org">Baiyangshan Charitable Foundation</span> · 白陽山慈善基金會</div>
+      <div class="sm">Oli-Action · South India Volunteer Team · 歡印光臨南印度海外志工團　|　Taiwan → South India</div>
     </div>
   </footer>
 
@@ -490,10 +520,8 @@
       e.preventDefault();
       msg.className = "msg"; // hide
 
-      // required native validation
       if (!form.checkValidity()){ form.reportValidity(); return; }
 
-      // at least one session
       const sessions = [...form.querySelectorAll('input[name="sessions"]:checked')].map(c=>c.value);
       if (sessions.length === 0){
         showMsg("Please select at least one session you can join.", "err");
@@ -540,19 +568,9 @@
       } catch (err){
         console.error(err);
         showMsg("Something went wrong while submitting. Please try again, or contact us if it persists.", "err");
-        btn.disabled = false; btn.textContent = "Submit Registration";
+        btn.disabled = false; btn.textContent = "Submit Registration ✋";
       }
     });
-
-    // stars
-    const s = document.getElementById('stars');
-    for(let i=0;i<44;i++){
-      const el=document.createElement('i');
-      el.style.left=Math.random()*100+'%';
-      el.style.top=Math.random()*100+'%';
-      el.style.animationDelay=(Math.random()*4)+'s';
-      s.appendChild(el);
-    }
   </script>
 </body>
 </html>
