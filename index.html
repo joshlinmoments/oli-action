@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oli-Action · 白陽山慈善基金會 南印度海外志工</title>
+  <meta name="description" content="白陽山慈善基金會 · 南印度海外志工服務。點亮生命，傳遞光。網站建置中，敬請期待。" />
+  <meta property="og:title" content="Oli-Action · 南印度海外志工" />
+  <meta property="og:description" content="白陽山慈善基金會 · 點亮生命，傳遞光。敬請期待。" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#0a0e1a;
+      --bg2:#131a2e;
+      --gold:#f5c76a;
+      --gold-soft:#e9b451;
+      --text:#f4f1ea;
+      --muted:#a9b0c0;
+      --line:rgba(245,199,106,.22);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;flex-direction:column;
+      overflow-x:hidden;
+      position:relative;
+    }
+    /* luminous background */
+    .glow{
+      position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(60vw 60vw at 50% -10%, rgba(245,199,106,.18), transparent 60%),
+        radial-gradient(40vw 40vw at 85% 20%, rgba(120,150,255,.10), transparent 60%),
+        radial-gradient(50vw 50vw at 10% 85%, rgba(245,199,106,.08), transparent 60%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+    }
+    .stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+    .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);
+      box-shadow:0 0 6px 1px rgba(245,199,106,.6);animation:tw 4s infinite ease-in-out}
+    @keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+
+    main{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;text-align:center;padding:32px 22px}
+
+    .lantern{
+      width:96px;height:96px;margin-bottom:30px;border-radius:50%;
+      background:radial-gradient(circle at 50% 40%,#fff6df,var(--gold) 45%,var(--gold-soft) 70%,transparent 72%);
+      box-shadow:0 0 60px 12px rgba(245,199,106,.45);
+      animation:float 6s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    .kicker{letter-spacing:.42em;font-size:12px;color:var(--gold);
+      text-transform:uppercase;margin-bottom:20px;padding-left:.42em}
+    h1{font-size:clamp(38px,9vw,76px);font-weight:800;line-height:1.02;
+      letter-spacing:.02em;margin-bottom:6px}
+    h1 .en{display:block;font-size:clamp(14px,3.4vw,20px);font-weight:500;
+      letter-spacing:.24em;color:var(--muted);margin-top:16px}
+    .tagline{margin-top:26px;font-size:clamp(16px,4.2vw,22px);color:var(--text);
+      font-weight:500;line-height:1.7}
+    .tagline .accent{color:var(--gold)}
+    .sub{margin-top:14px;font-size:15px;color:var(--muted);line-height:1.9;max-width:34ch}
+
+    .status{margin-top:40px;display:inline-flex;align-items:center;gap:10px;
+      padding:11px 22px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(245,199,106,.06);font-size:14px;color:var(--gold);letter-spacing:.05em}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);
+      box-shadow:0 0 10px 2px rgba(245,199,106,.7);animation:tw 1.6s infinite}
+
+    footer{position:relative;z-index:1;text-align:center;padding:26px 20px;
+      color:var(--muted);font-size:12.5px;letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.05)}
+    footer .org{color:var(--text);font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="stars" id="stars"></div>
+
+  <main>
+    <div class="lantern"></div>
+    <div class="kicker">South India · Volunteer Service</div>
+    <h1>
+      Oli-Action
+      <span class="en">點 亮 生 命 · 傳 遞 一 束 光</span>
+    </h1>
+    <p class="tagline">白陽山慈善基金會 <span class="accent">南印度海外志工</span></p>
+    <p class="sub">「Oli」在坦米爾語意為「光」。<br>我們前往南印度，用行動點亮更多生命。</p>
+
+    <div class="status"><span class="dot"></span>網站建置中 · 報名即將開放，敬請期待</div>
+  </main>
+
+  <footer>
+    <span class="org">白陽山慈善基金會</span> · Bai Yang Shan Charity Foundation　|　Taiwan → South India
+  </footer>
+
+  <script>
+    // scatter twinkling stars
+    const s = document.getElementById('stars');
+    for(let i=0;i<48;i++){
+      const el=document.createElement('i');
+      el.style.left=Math.random()*100+'%';
+      el.style.top=Math.random()*100+'%';
+      el.style.animationDelay=(Math.random()*4)+'s';
+      s.appendChild(el);
+    }
+  </script>
+</body>
+</html>
