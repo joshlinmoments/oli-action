@@ -481,6 +481,7 @@
               <label>Languages you can communicate in</label>
               <div class="checks row">
                 <label class="chk"><input type="checkbox" name="languages" value="English" /><span class="ct">English</span></label>
+                <label class="chk"><input type="checkbox" name="languages" value="Chinese" /><span class="ct">Chinese 中文</span></label>
                 <label class="chk"><input type="checkbox" name="languages" value="Tamil" /><span class="ct">Tamil</span></label>
                 <label class="chk"><input type="checkbox" name="languages" value="Hindi" /><span class="ct">Hindi</span></label>
                 <label class="chk"><input type="checkbox" name="languages" value="Telugu" /><span class="ct">Telugu</span></label>
@@ -506,26 +507,7 @@
           </div>
 
           <div class="fgroup">
-            <div class="glabel">④ Wellbeing &amp; Emergency</div>
-            <div class="grid2">
-              <div class="field">
-                <label>Dietary restrictions / allergies</label>
-                <input type="text" name="dietary" placeholder="e.g. Vegetarian, none…" />
-              </div>
-              <div class="field"></div>
-              <div class="field">
-                <label>Emergency contact — Name <span class="req">*</span></label>
-                <input type="text" name="emergencyName" required />
-              </div>
-              <div class="field">
-                <label>Emergency contact — Phone <span class="req">*</span></label>
-                <input type="tel" name="emergencyPhone" required placeholder="+91 …" />
-              </div>
-            </div>
-          </div>
-
-          <div class="fgroup">
-            <div class="glabel">⑤ Consent</div>
+            <div class="glabel">④ Consent</div>
             <div class="checks">
               <label class="chk"><input type="checkbox" name="commit" value="yes" required />
                 <span class="ct"><b>I confirm my intention to participate <span class="req">*</span></b><small>I understand this is a volunteer commitment and will attend the sessions I selected.</small></span></label>
@@ -595,8 +577,7 @@
         year: form.year.value, registerNumber: form.registerNumber.value.trim(),
         sessions, languages: [...form.querySelectorAll('input[name="languages"]:checked')].map(c=>c.value),
         experience: form.experience.value, skills: form.skills.value.trim(),
-        motivation: form.motivation.value.trim(), dietary: form.dietary.value.trim(),
-        emergencyName: form.emergencyName.value.trim(), emergencyPhone: form.emergencyPhone.value.trim(),
+        motivation: form.motivation.value.trim(),
         commit: form.commit.checked, photoConsent: form.photoConsent.checked,
         userAgent: navigator.userAgent, submittedAt: new Date().toISOString()
       };
