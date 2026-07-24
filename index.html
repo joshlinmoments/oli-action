@@ -72,12 +72,12 @@
     .hero .btns{margin:26px auto 0;display:flex;flex-direction:column;gap:14px;max-width:420px}
     @media(min-width:520px){.hero .btns{flex-direction:row;justify-content:center;max-width:none}}
 
-    /* two volunteers */
-    .volunteers{display:flex;justify-content:center;align-items:flex-end;gap:2%;margin-top:22px;padding:0 6px}
-    .volunteers img{width:44%;max-width:280px;height:auto;filter:drop-shadow(0 14px 14px rgba(120,90,30,.22))}
-    .volunteers img.kani{animation:bobA 5s ease-in-out infinite}
-    .volunteers img.mandy{animation:bobB 5.4s ease-in-out infinite}
-    @media(min-width:760px){.volunteers img{max-width:320px}}
+    /* two volunteers — overlapping team, half-body */
+    .team{position:relative;width:min(94%,440px);margin:24px auto 0;aspect-ratio:1/.82}
+    .team img{position:absolute;filter:drop-shadow(0 12px 12px rgba(120,90,30,.22))}
+    .team .kani{left:2%;bottom:0;width:62%;z-index:2;animation:bobA 5s ease-in-out infinite}
+    .team .mandy{right:-2%;bottom:6%;width:52%;z-index:1;animation:bobB 5.6s ease-in-out infinite}
+    @media(min-width:760px){.team{width:min(90%,500px)}}
 
     /* ================= MARQUEE ================= */
     .marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:12px 0;margin-top:24px}
@@ -206,9 +206,9 @@
         <a class="btn ghost lg" href="#about">Learn More →</a>
       </div>
     </div>
-    <div class="volunteers">
-      <img class="kani" src="assets/kani-web.png" alt="Indian student volunteer" />
-      <img class="mandy" src="assets/mandy-web.png" alt="Taiwanese volunteer" />
+    <div class="team">
+      <img class="mandy" src="assets/mandy3-web.png" alt="Taiwanese volunteer waving" />
+      <img class="kani" src="assets/kani2-web.png" alt="Indian student volunteer" />
     </div>
   </section>
 
