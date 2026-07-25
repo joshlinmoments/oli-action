@@ -56,7 +56,7 @@
     @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
     /* ================= HERO ================= */
-    .hero{padding:34px 0 20px;text-align:center;position:relative}
+    .hero{padding:34px 0 0;text-align:center;position:relative}
     .hero .flags{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
     .hero .flags img{height:26px;width:auto;border-radius:4px}
     .hero .hello{margin-top:12px;font-family:"Baloo 2";font-weight:800;font-size:clamp(15px,4vw,18px);color:var(--red)}
@@ -72,15 +72,13 @@
     .hero .btns{margin:26px auto 0;display:flex;flex-direction:column;gap:14px;max-width:420px}
     @media(min-width:520px){.hero .btns{flex-direction:row;justify-content:center;max-width:none}}
 
-    /* two volunteers — overlapping team, half-body */
-    .team{position:relative;width:min(94%,440px);margin:24px auto 0;aspect-ratio:1/.82}
-    .team img{position:absolute;filter:drop-shadow(0 12px 12px rgba(120,90,30,.22))}
-    .team .kani{left:2%;bottom:0;width:62%;z-index:2;animation:bobA 5s ease-in-out infinite}
-    .team .mandy{right:-2%;bottom:6%;width:52%;z-index:1;animation:bobB 5.6s ease-in-out infinite}
-    @media(min-width:760px){.team{width:min(90%,500px)}}
+    /* two volunteers — one combined half-body photo, flush to the bar below */
+    .team{width:min(100%,460px);margin:20px auto 0;display:block}
+    .team img{width:100%;display:block;margin-bottom:-2px}
+    @media(min-width:760px){.team{width:min(88%,520px)}}
 
     /* ================= MARQUEE ================= */
-    .marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:12px 0;margin-top:24px}
+    .marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:12px 0;margin-top:0;position:relative;z-index:1}
     .marquee .run{display:inline-block;font-family:"Baloo 2";font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;animation:tick 26s linear infinite}
     .marquee .run span{margin:0 20px}
     .marquee .run b{color:var(--acid)}
@@ -207,8 +205,7 @@
       </div>
     </div>
     <div class="team">
-      <img class="mandy" src="assets/mandy3.webp" alt="Taiwanese volunteer waving" />
-      <img class="kani" src="assets/kani2.webp" alt="Indian student volunteer" />
+      <img src="assets/team.webp" alt="Oli-Action volunteers — Taiwan & India, waving and thumbs up" />
     </div>
   </section>
 
@@ -326,7 +323,7 @@
               <div class="field full"><label>University / Institution <span class="req">*</span></label><input type="text" name="institution" required value="Sathyabama Institute of Science and Technology (SIST)" /></div>
               <div class="field"><label>Department / Course <span class="req">*</span></label><input type="text" name="department" required placeholder="e.g. B.E. Computer Science" /></div>
               <div class="field"><label>Year of Study <span class="req">*</span></label><select name="year" required><option value="">Select…</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Postgraduate</option><option>Other</option></select></div>
-              <div class="field full"><label>Register Number <span class="req">*</span> <span class="hint">(SIST student ID)</span></label><input type="text" name="registerNumber" required /></div>
+              <div class="field full"><label>Register Number <span class="hint">(SIST student ID, optional)</span></label><input type="text" name="registerNumber" /></div>
             </div>
           </div>
 
@@ -355,7 +352,7 @@
             <div class="grid2">
               <div class="field"><label>Previous volunteer / teaching experience?</label><select name="experience"><option value="">Select…</option><option>Yes</option><option>No</option></select></div>
               <div class="field"><label>Special skills <span class="hint">(games, art, music…)</span></label><input type="text" name="skills" placeholder="What are you good at?" /></div>
-              <div class="field full"><label>Why do you want to join Oli-Action? <span class="req">*</span></label><textarea name="motivation" required placeholder="A few sentences about what inspires you to volunteer…"></textarea></div>
+              <div class="field full"><label>Why do you want to join Oli-Action? <span class="hint">(optional)</span></label><textarea name="motivation" placeholder="A few sentences about what inspires you to volunteer…"></textarea></div>
             </div>
           </div>
 
