@@ -428,6 +428,20 @@
     let db = null;
     if (CONFIG_READY) { db = getDatabase(initializeApp(firebaseConfig)); }
 
+    // Google Sheet endpoint (Apps Script Web App). Registrations are mirrored here
+    // so they land directly in the organizer's Google Sheet. Paste the /exec URL.
+    const SHEET_ENDPOINT = "PASTE_APPS_SCRIPT_URL";
+    function mirrorToSheet(payload){
+      if (SHEET_ENDPOINT.startsWith("PASTE")) return;
+      try {
+        fetch(SHEET_ENDPOINT, {
+          method:"POST", mode:"no-cors",
+          headers:{"Content-Type":"text/plain;charset=utf-8"},
+          body: JSON.stringify(payload)
+        });
+      } catch(e){ /* fire-and-forget */ }
+    }
+
     const form = document.getElementById("regForm");
     const msg = document.getElementById("formMsg");
     const btn = document.getElementById("submitBtn");
@@ -458,6 +472,7 @@
       };
       if (!CONFIG_READY){ showMsg("🚧 Registration will open very soon. Please check back shortly!", "info"); return; }
       btn.disabled = true; btn.textContent = "Submitting…";
+      mirrorToSheet(data); // mirror into the organizer's Google Sheet
       try {
         await push(ref(db, "registrations"), { ...data, serverTime: serverTimestamp() });
         form.style.display = "none";
