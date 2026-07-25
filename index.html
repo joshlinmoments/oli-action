@@ -56,7 +56,7 @@
     @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
     /* ================= HERO ================= */
-    .hero{padding:34px 0 0;text-align:center;position:relative}
+    .hero{padding:34px 0 44px;text-align:center;position:relative}
     .hero .flags{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
     .hero .flags img{height:26px;width:auto;border-radius:4px}
     .hero .hello{margin-top:12px;font-family:"Baloo 2";font-weight:800;font-size:clamp(15px,4vw,18px);color:var(--red)}
@@ -72,10 +72,11 @@
     .hero .btns{margin:26px auto 0;display:flex;flex-direction:column;gap:14px;max-width:420px}
     @media(min-width:520px){.hero .btns{flex-direction:row;justify-content:center;max-width:none}}
 
-    /* two volunteers — one combined half-body photo, flush to the bar below */
-    .team{width:min(100%,460px);margin:20px auto 0;display:block}
-    .team img{width:100%;display:block;margin-bottom:-2px}
-    @media(min-width:760px){.team{width:min(88%,520px)}}
+    /* volunteers photo sitting on top of the CTA button (button hides the half-body crop) */
+    .hero-team{width:min(100%,430px);margin:22px auto 0}
+    .hero-team .tpic{width:100%;display:block;margin-bottom:-12px;position:relative;z-index:1}
+    .hero-team .hero-go{width:100%;position:relative;z-index:2}
+    @media(min-width:760px){.hero-team{width:min(100%,460px)}}
 
     /* ================= MARQUEE ================= */
     .marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:12px 0;margin-top:0;position:relative;z-index:1}
@@ -193,19 +194,15 @@
         <span>×</span>
         <img src="assets/flag-in.webp" alt="India" /> India
       </div>
-      <div class="hello">🙏 Hello, SIST friends!</div>
       <div class="vanakkam">Vanakkam, <span class="s">Sathyabama!</span></div>
       <img class="titlelogo" src="assets/title-logo.webp" alt="Oli-Action International Volunteer" />
       <div class="zh"><span class="tag">歡印光臨</span> 南印度海外志工團</div>
       <p class="hook">We traveled <span class="km">4,000 KM</span> from Taiwan to meet you!</p>
       <p class="lead">Meet Taiwan · Share Cultures · Co-Lead a Volunteer Camp. In Tamil, <b>“Oli”</b> means <b>light</b> — team up with us to bring warmth and hope to local children.</p>
-      <div class="btns">
-        <a class="btn lg" href="#register">Register as a Volunteer ✋</a>
-        <a class="btn ghost lg" href="#about">Learn More →</a>
+      <div class="hero-team">
+        <img class="tpic" src="assets/team.webp" alt="Oli-Action volunteers — Taiwan & India, waving and thumbs up" />
+        <a class="btn lg block hero-go" href="#register">Let's Go! →</a>
       </div>
-    </div>
-    <div class="team">
-      <img src="assets/team.webp" alt="Oli-Action volunteers — Taiwan & India, waving and thumbs up" />
     </div>
   </section>
 
